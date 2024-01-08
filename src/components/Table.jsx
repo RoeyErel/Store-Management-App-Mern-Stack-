@@ -33,21 +33,21 @@ const Table = ({Customers, Products, Purchases, filteredProductId, filteredCusto
     }, [filteredProductId, filteredCustomerId, Products, Customers]);
 
     return (
-        <table className='w-full leading-normal p-4 h-full'>
+        <table className='w-full leading-normal p-4 h-fit'>
             <thead>
                 <tr className='h-[70px]'>
-                    <th className='px-2 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md font-bold text-gray-700 uppercase tracking-wider'>Customer Name</th>
-                    <th className='px-4 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md font-bold text-gray-700 uppercase tracking-wider'>Products</th>
-                    <th className='px-4 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md font-bold text-gray-700 uppercase tracking-wider'>Purchases</th>
+                    <th className='px-2 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md sm:text-[12px] font-bold text-gray-700 uppercase tracking-wider'>Customer Name</th>
+                    <th className='px-4 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md sm:text-[12px] font-bold text-gray-700 uppercase tracking-wider'>Products</th>
+                    <th className='px-4 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-md sm:text-[12px] font-bold text-gray-700 uppercase tracking-wider'>Purchases</th>
                 </tr>
             </thead>
             <tbody>
                 {filterCustomer.map((Customer) => (
                     <tr key={Customer.id} className='h-fit'>
-                        <td className="font-semibold px-5 border-b border-gray-200 bg-white text-sm">{Customer.firstName +" "+ Customer.lastName}</td>
+                        <td className="font-semibold px-5 border-b border-gray-200 bg-white text-sm sm:text-[12px]">{Customer.firstName +" "+ Customer.lastName}</td>
                         
-                        <td className='h-full'>
-                            <ul className='h-full font-semibold px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                        <td className='h-full '>
+                            <ul className='h-full sm:text-[12px] font-semibold px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                                 {filterPurchases.filter((purchaseByID) => {
                                     return(purchaseByID.CustomerID === Customer.id)
                                 }).map((selectedPurchase) => {
@@ -65,7 +65,7 @@ const Table = ({Customers, Products, Purchases, filteredProductId, filteredCusto
                         </td>
 
                         <td className='h-full'>
-                            <ul className='h-full font-semibold px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                            <ul className='h-full sm:text-[12px] font-semibold px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                             {
                                 filterPurchases.filter((purchaseByID) => {
                                     return(purchaseByID.CustomerID === Customer.id)

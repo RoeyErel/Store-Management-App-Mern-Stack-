@@ -75,35 +75,35 @@ const Products = () => {
             <div id='region-1' className="flex justify-center my-4">
                 <p className='text-xl'>Total Purchased Products: {purchases.length}</p>
             </div>
-            <div id='region-2' className="flex flex-col mx-14 justify-center items-center my-8">
+            <div id='region-2' className="flex flex-col mx-14 sm:mx-0 justify-center items-center my-8">
                 {products.map((product) => (
-                    <div id='product' key={product.id} className="w-full border-[1px] border-white flex flex-col justify-center items-center px-4">
-                        <div id='product-Area' className='w-full flex flex-row justify-center items-center px-4 h-[350px]'>
+                    <div id='product' key={product.id} className="w-full border-[1px] border-white flex flex-col justify-center items-center px-4 sm:px-1">
+                        <div id='product-Area' className='w-full flex flex-row justify-center items-center px-4 sm:px-1 h-[350px]'>
                             <div id='product-info' className='w-[50%] h-full'>
-                                <h2 className='text-4xl py-6 px-4'>
+                                <h2 className='text-4xl py-6 px-4 sm:px-1 sm:text-2xl'>
                                     <a href={`/edit-product/${product.id}`}>{product.Name}</a>
                                 </h2>
-                                <p className='text-xl py-1 px-4'>Price: ${product.Price}</p>
-                                <p className='text-xl py-1 px-4'>Quantity: {product.Quantity}</p>
+                                <p className='text-xl sm:text-[15px] py-1 sm:px-1 px-4'>Price: ${product.Price}</p>
+                                <p className='text-xl sm:text-[15px] py-1 sm:px-1 px-4'>Quantity: {product.Quantity}</p>
                             </div>
                             
                             <div id='customer-list' className="flex flex-col w-[50%] h-full">
                                 <div className='w-full h-[10%]'>
-                                    <h1 className='font-semibold pt-1 text-xl w-full flex justify-center items-center'>Purchase History:</h1>
+                                    <h1 className='font-semibold pt-1 text-xl sm:text-sm w-full flex justify-center items-center'>Purchase History:</h1>
                                 </div>
-                                <div className='overflow-y-auto h-[90%] w-full'>
+                                <div className='overflow-y-auto h-[90%] sm:h-[70%] w-full'>
                                     {purchases.filter((purchase) => {
                                         return(product.id == purchase.ProductID)
                                     }).map((buyProduct) => (
                                         customers.filter((customer)=> {return(buyProduct.CustomerID === customer.id)}).map((finalCustomer) => {return(
-                                            <div key={finalCustomer.id} className="customer-item px-2 w-full border-2 border-white/30 my-2">
-                                                <div id='region2-customer-name' className='flex w-full py-2'>
-                                                    <p className='flex font-thin text-xl pr-2 w-full' >Name: </p>
-                                                    <a className='flex font-thin text-xl w-full' href={`/edit-customer/${finalCustomer.id}`}>{" "+finalCustomer.firstName +" "+ finalCustomer.lastName}</a>
+                                            <div key={finalCustomer.id} className="customer-item px-2 sm:px-0 w-full border-2 border-white/30 my-2">
+                                                <div id='region2-customer-name' className='flex justify-center items-center w-full py-2'>
+                                                    <p className='flex w-full sm:w-[60%] font-thin text-xl sm:text-sm pr-2 sm:pr-0 '>Name: </p>
+                                                    <a className='flex w-full sm:w-[40%] font-thin text-xl sm:text-sm h-full' href={`/edit-customer/${finalCustomer.id}`}>{" "+finalCustomer.firstName +" "+ finalCustomer.lastName}</a>
                                                 </div>
-                                                <div id='region2-customer-purchased' className='flex w-full py-2'>
-                                                    <p className='flex w-full font-thin text-xl pr-2'>Purchased Date: </p>
-                                                    <p className='flex w-full font-thin text-xl'>{buyProduct.Date}</p>
+                                                <div id='region2-customer-purchased' className='flex justify-center items-center w-full py-2'>
+                                                    <p className='flex w-full sm:w-[65%] font-thin text-xl sm:text-sm pr-1'>Purchased Date: </p>
+                                                    <p className='flex w-full sm:w-[35%] font-thin text-xl sm:text-sm pr-1 '>{buyProduct.Date}</p>
                                                 </div>
                                                         <div className='py-4 w-full flex justify-center items-center'>
                                                             <button onClick={()=> setStyle({id:finalCustomer.id, product:product.Name, combo:!style.combo})} className='bg-slate-600 px-2 py-1 rounded-md text-white hover:bg-slate-500'>Add</button>

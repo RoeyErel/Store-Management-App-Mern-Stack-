@@ -68,8 +68,8 @@ const Purchased = () => {
     }, []);
 
     return (
-        <div className='flex flex-col justify-start items-center w-full'>
-            <div className='w-[50%] my-12'>
+        <div className='flex flex-col justify-start items-center w-full h-screen'>
+            <div className='w-[50%] sm:w-[75%] my-12'>
                 {loading ? (
                     <div className='flex justify-center items-center'>
                         <BeatLoader color="#111" />

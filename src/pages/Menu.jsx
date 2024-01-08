@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Menu = () => {
     return (
-        <div className='w-full'>
+        <div className='w-full h-screen'>
             <nav className='flex w-full justify-center items-start my-6'>
                 <ul>
                     <li className='py-2 flex justify-center items-center px-4'>

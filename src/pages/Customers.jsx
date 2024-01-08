@@ -54,7 +54,7 @@ const Customers = () => {
     }, []);
 
     return (
-        <div id='main-container' className='w-full h-full'>
+        <div id='main-container' className='w-full h-screen'>
             {loading ? (
                 <div className='flex justify-center items-center'>
                     <BeatLoader color="#111" />
