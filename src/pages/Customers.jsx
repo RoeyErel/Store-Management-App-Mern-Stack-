@@ -1,68 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/Table';
+import LoadingSpinner  from '../components/LoadingSpinner';
+import {fetchData} from '../utils'
+
 import db from '../firebase';
-import { collection, onSnapshot, query } from "firebase/firestore";
-import {BeatLoader} from 'react-spinners'
+import { collection, query } from "firebase/firestore";
 
 const Customers = () => {
     const [purchases, setPurchases] = useState([]);
     const [customers, setCustomers] = useState([]);
     const [products, setProducts] = useState([]);
+    
     const [loading, setLoading] = useState(true);
+    const headline = {firstRow:"Customers", secondRow:"Products", thirdRow:"Purchases History"};
 
-    const fetchData = async () => {
+    const getData = async () => {
         try {
             const customersQuery = query(collection(db, 'Customers'));
             const productsQuery = query(collection(db, 'Products'));
             const purchasesQuery = query(collection(db, 'Purchases'));
 
-            onSnapshot(customersQuery, (querySnapshot) => {
-                setCustomers(
-                    querySnapshot.docs.map(doc => ({
-                        id: doc.id,
-                        ...doc.data()
-                    }))
-                );
-            });
+            fetchData(setCustomers, customersQuery);
+            fetchData(setProducts, productsQuery);
+            fetchData(setPurchases, purchasesQuery);
 
-            onSnapshot(productsQuery, (querySnapshot) => {
-                setProducts(
-                    querySnapshot.docs.map(doc => ({
-                        id: doc.id,
-                        ...doc.data()
-                    }))
-                );
-            });
-
-            onSnapshot(purchasesQuery, (querySnapshot) => {
-                setPurchases(
-                    querySnapshot.docs.map(doc => ({
-                        id: doc.id,
-                        ...doc.data()
-                    }))
-                );
-            });
             setLoading(false);
         } catch (error) {
             console.error("Error fetching data:", error);
-            setLoading(false);
+            setLoading(true);
         }
     }
 
     useEffect(() => {
-        fetchData();
+        getData()
     }, []);
 
     return (
-        <div id='main-container' className='w-full h-screen'>
-            {loading ? (
-                <div className='flex justify-center items-center'>
-                    <BeatLoader color="#111" />
-                </div>
-            ) : (
-                <Table Customers={customers} Products={products} Purchases={purchases} filteredProduct={null} filteredCustomer={null} />
-            )}
-        </div>
+        loading ? (
+            <LoadingSpinner/>
+        ) : (
+            <div id='main-container' className='w-full h-screen flex'>
+                <Table firstRow={customers} secondRow={products} thirdRow={purchases} filterObj={{pid:null, cid:null, date:null}} isCutomerPage={true} Headline={headline}/>
+            </div>
+            
+        )
     );
 }
 

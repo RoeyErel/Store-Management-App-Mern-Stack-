@@ -4,7 +4,7 @@ import { BiSolidPurchaseTag, BiSolidUser, BiSolidInbox, BiHomeAlt } from "react-
 
 const Navbar = () => {
     return (
-        <div id='side-bar' className='w-[250px] sm:w-[80px] bg-[#ebebeb]'>
+        <div id='side-bar' className='w-[250px] sm:w-[50px] bg-[#ebebeb]'>
             <nav className='flex w-full justify-center items-start'>
                 <ul className='w-full h-full flex flex-col my-4'>
                     <li className='flex justify-center items-center w-full py-1'>

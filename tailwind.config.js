@@ -19,7 +19,7 @@ export default {
       'md': {'max': '950px'},
       // => @media (max-width: 767px) { tablet }
 
-      'sm': {'max': '650px'},
+      'sm': {'max': '850px'},
       // => @media (max-width: 639px) { mobile }
     }
   },
