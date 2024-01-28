@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react'
 import LoadingSpinner  from '../components/LoadingSpinner';
 import Combobox from '../components/Combobox'
-import {fetchData} from '../utils'
+import Table from '../components/Table'
+import { handleBuy, fetchData } from '../utils';
+//Firebase
 import db from '../firebase'
 import { collection, query } from "firebase/firestore"; 
-import { handleBuy } from '../utils';
-import Table from '../components/Table'
 
 const Products = () => {
     const [customers, setCustomers] = useState([]);

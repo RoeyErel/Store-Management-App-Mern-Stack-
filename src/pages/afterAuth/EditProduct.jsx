@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import LoadingSpinner  from '../../components/LoadingSpinner';
 import Form from '../../components/Form';
-import { useParams, Link, useNavigate } from 'react-router-dom'
 import { fetchData, handleInput} from '../../utils';
 
 //firebase

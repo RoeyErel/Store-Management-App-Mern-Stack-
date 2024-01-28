@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Form from '../../components/Form';
-import { fetchData, handleInput} from '../../utils';
 import LoadingSpinner  from '../../components/LoadingSpinner';
+import { fetchData, handleInput} from '../../utils';
 
 //firebase
 import { collection, onSnapshot, query, updateDoc, deleteDoc, doc, where, getDocs } from 'firebase/firestore';

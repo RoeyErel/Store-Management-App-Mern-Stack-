@@ -6,7 +6,7 @@ import LoadingSpinner  from '../components/LoadingSpinner';
 import { fetchData } from '../utils'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+//Firebase
 import db from '../firebase'
 import { collection, query } from "firebase/firestore";
 

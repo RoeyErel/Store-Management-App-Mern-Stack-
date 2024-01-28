@@ -24,7 +24,6 @@ function App() {
                     <Route path='/products' element={<Products/>} />
                     <Route path='/customers' element={<Customers/>} />
                     <Route path='/purchased' element={<Purchases/>} />
-                    {/* Login */}
                     <Route path='/edit-customer/:userID' element={<EditCustomers/>} />
                     <Route path='/edit-product/:productID' element={<EditProduct/>} />
                 </Routes>
